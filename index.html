@@ -62,13 +62,13 @@
 		<!-- C'EST CASSE -->
 		<output>--</output>
 		<script> 
-		$(function() {
+		/*$(function() {
 			$('.range').next().text('--');
 			$('.range').on('input', function() {
 				var $set = $(this).val();
 				$(this).next().text($set);
 			});
-		});
+		});*/
 		</script>
 		</li>
 		<li>
@@ -123,8 +123,10 @@
             <script>  
                 validateMdp2 = function(e) {  
                     var mdp1 = document.getElementById('mdp1');  
-                    var mdp2 = document.getElementById('mdp2');  
-                    if (/* est-ce que mdp1 est valide ? */ && /* est-ce que mdp1 et mdp2 ont la même valeur ? */) {  
+                    var mdp2 = document.getElementById('mdp2'); 
+					var tailleMdp =  /^[A-Za-z0-9]\w{6,8}$/;
+                    if ( e.value.match(tailleMdp) == true /* est-ce que mdp1 est valide ? */ && e.mdp1.value == e.mdp2.value/* est-ce que mdp1 et mdp2 ont la même valeur ? */) {  
+					
                         // ici on supprime le message d'erreur personnalisé, et du coup mdp2 devient valide.  
                         document.getElementById('mdp2').setCustomValidity('');  
                     } else {  
