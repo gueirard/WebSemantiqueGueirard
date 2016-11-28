@@ -40,15 +40,47 @@
 			-->
             <span class="form_hint">Format attendu "name@something.com"</span>
         </li>
+		<li>
+            <label for="nom">Nom :</label>
+            <input type="text" name="nom" id="nom" placeholder="Entrez un Nom (optionnel)" />
+            <!-- non obligatoire -->
+            
+        </li>
         <li>
             <label for="prenom">Prénom :</label>
-            <input type="text" name="prenom" id="prenom" required placeholder="First Name" />
+            <input type="text" name="prenom" id="prenom" required placeholder="Entrez un Prénom" />
             <!-- ajouter à input l'attribut qui dit que c'est un champs obligatoire -->
             <!-- ajouter à input l'attribut qui donne une indication grisée (placeholder) -->
         </li>
 		<li>
+			 <input type= "radio" name="sexe" value="homme"> Masculin </br>
+			 <input type= "radio" name="sexe" value="femme"> Féminin  
+		</li>
+		<li>
+		<label for="taille">Taille :</label>
+		<input type="range" value="15" max="250" min="0" step="0.01">
+		</li>
+		<li>
+            <label for="tel">Tel :</label>
+            <input type="tel" name="tel" id="tel" placeholder="Entrez un Numéro (optionnel)"/>
+            <!-- non obligatoire -->
+            
+        </li>
+			<li>
+            <label for="ville">Ville :</label>
+            <input type="text" name="ville" id="ville" placeholder="Entrez une Ville (optionnel)" />
+            <!-- non obligatoire -->
+            
+        </li>
+		<li>
+            <label for="url">Site :</label>
+            <input type="url" name="url" id="url" placeholder="Entrez un Site (optionnel)" />
+            <!-- non obligatoire -->
+            
+        </li>
+		<li>
             <label for="mdp1">Mot de passe :</label>
-            <input required placeholder="ex: 123" type="password" name="password" id="mdp1" pattern="regex" onkeyup="validateMdp2()" title = "Le mot de passe doit contenir de 6 à 8 caractères alphanumériques." />
+            <input required placeholder="Entrez un mot de passe" type="password" name="password" id="mdp1" pattern="regex" onkeyup="validateMdp2()" title = "Le mot de passe doit contenir de 6 à 8 caractères alphanumériques." />
             <!-- ajouter à input l'attribut qui dit que c'est un champs obligatoire -->
             <!-- ajouter à input l'attribut qui donne une indication grisée (placeholder) -->
             <!-- spécifiez l'expression régulière: le mot de passe doit être composé de 6 à 8 caractères alphanumériques -->
@@ -64,8 +96,8 @@
             <span class="form_hint">De 6 à 8 caractères alphanumériques.</span>
         </li>
         <li>
-            <label for="mdp2">Confirmez mot de passe :</label>
-            <input required placeholder="ex: 123" type="password" id="mdp2" required onkeyup="validateMdp2()">
+            <label for="mdp2">Confirmez mot de passe </label>
+            <input required placeholder="Veuillez confirmer le mot de passe" type="password" id="mdp2" required onkeyup="validateMdp2()">
             <!-- ajouter à input l'attribut qui dit que c'est un champs obligatoire -->
             <!-- ajouter à input l'attribut qui donne une indication grisée (placeholder) -->
             <!-- pourquoi est-ce qu'on a pas mis un attribut name ici ? -->
