@@ -57,8 +57,19 @@
 			 <input type= "radio" name="sexe" value="femme"> Féminin  
 		</li>
 		<li>
-		<label for="taille">Taille :</label>
-		<input type="range" value="15" max="250" min="0" step="0.01">
+		<label for="taille">Taille:</label>
+		<input type="range" class="range" value="15" max="250" min="0" step="0.01">
+		<!-- C'EST CASSE -->
+		<output>--</output>
+		<script> 
+		$(function() {
+			$('.range').next().text('--');
+			$('.range').on('input', function() {
+				var $set = $(this).val();
+				$(this).next().text($set);
+			});
+		});
+		</script>
 		</li>
 		<li>
             <label for="tel">Tel :</label>
@@ -224,6 +235,10 @@
                 }  
             </script>  
         </li> 
+		<li>
+		<label for="color">Couleur préférée:</label> 
+		<input type="color" id="color" name="color" value="#00000">
+		</li>
         <li>
             <input type="submit" value="Soumettre Formulaire">
         </li>
