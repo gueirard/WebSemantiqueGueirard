@@ -58,7 +58,7 @@
 		</li>
 		<li>
 		<label for="taille">Taille:</label>
-		<input type="range" class="range" value="15" max="250" min="0" step="0.01">
+		<input type="range" name="taille" id="taille" class="range" value="15" max="250" min="0" step="0.01">
 		<!-- C'EST CASSE -->
 		<output>--</output>
 		<script> 
@@ -84,14 +84,14 @@
             
         </li>
 		<li>
-            <label for="url">Site :</label>
-            <input type="url" name="url" id="url" placeholder="Entrez un Site (optionnel)" />
+            <label for="website">Site :</label>
+            <input type="url" name="website" id="website" placeholder="Entrez un Site (optionnel)" />
             <!-- non obligatoire -->
             
         </li>
 		<li>
             <label for="mdp1">Mot de passe :</label>
-            <input required placeholder="Entrez un mot de passe" type="password" pattern="[a-zA-Z9-0]{6,8}" name="password" id="mdp1" pattern="regex" onkeyup="validateMdp2()" title = "Le mot de passe doit contenir de 6 à 8 caractères alphanumériques." />
+            <input required placeholder="Entrez un mot de passe" type="password" pattern=".{6,8}" name="password" id="mdp1" onkeyup="validateMdp2()" title = "Le mot de passe doit contenir de 6 à 8 caractères alphanumériques." />
             <!-- ajouter à input l'attribut qui dit que c'est un champs obligatoire -->
             <!-- ajouter à input l'attribut qui donne une indication grisée (placeholder) -->
             <!-- spécifiez l'expression régulière: le mot de passe doit être composé de 6 à 8 caractères alphanumériques -->
@@ -184,7 +184,7 @@
             var canvas = document.getElementById("preview");
             var ctx = canvas.getContext("2d");
             // on réinitialise le canvas: on l'efface, et déclare sa largeur et hauteur à 0
-            ctx.setFillColor("white");
+            //ctx.setFillColor("white");
             ctx.fillRect(0,0,canvas.width,canvas.height);
             canvas.width=0;
             canvas.height=0;
@@ -239,8 +239,8 @@
             </script>  
         </li> 
 		<li>
-		<label for="color">Couleur préférée:</label> 
-		<input type="color" id="color" name="color" value="#00000">
+		<label for="couleur">Couleur préférée:</label> 
+		<input type="color" id="couleur" name="couleur" value="#00000">
 		</li>
         <li>
             <input type="submit" value="Soumettre Formulaire">
