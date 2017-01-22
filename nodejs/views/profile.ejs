@@ -1,0 +1,24 @@
+
+<% include head %>
+
+
+
+<% var title = 'Mon Profil' %>
+
+<h1>Yo c'est ton profil de gitan</h1>
+
+
+<h2>ton mail : <%= email%></h2>
+<h2>ton nom : <%= nom%></h2>
+<h2>ton prenom : <%= prenom%></h2>
+<h2>ta photo : </h2> <img src="<%= profilepic%>" width="50" height="50" value="<%= profilepic%>"/>
+<h2>ta couleur : <input type="color" id="couleur" name="couleur" value="<%= couleur%>"></h2>
+
+<p>
+    <input type="submit" value="logout">
+</p>
+<p>
+    <input type="submit" value="supprimer mon compte">
+</p>
+
+<% include foot %>
