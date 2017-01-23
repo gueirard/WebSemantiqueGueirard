@@ -88,22 +88,22 @@ app.get('/profile', function (req, res) {
     //res.render('profile');
     // Afficher le button logout
 });
-/*
+
 app.post('/supprimerProfil', function (req, res) {
     if (session.open) {
         connection.query("delete from users where id = " + session.email, function (err, rows, fields) {
             if (!err) {
-                logger.info('supression réussi !');;
+                logger.info('bien ouej t as suppr un compte!');;
                 session.open = false;
             }
             else {
-                logger.info('suppression ratée !');
+                logger.info('noob!');
             }
         });
     }
     else res.redirect('/login');
 });
-*/
+
 logger.info('server start');
 app.listen(1313);
 
