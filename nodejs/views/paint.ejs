@@ -118,14 +118,13 @@
             };
         };
     </script>
-</head>
-<body>
+
 
 <canvas id="myCanvas"></canvas>
 
 <form name="tools" action="\paint" method="post">
    <input type="range" id="taille" min="0" max="3" step="1" value="0"/>
-	<input type="color" id="couleur" value= '<%=couleur%>'/>
+	<input type="color" id="couleur"/>
     <label for="destinataire">Email du destinataire</label>
     <input type="text" id="destinataire" name="destinataire"/>
 
@@ -139,7 +138,6 @@
     <input id="validate" type="submit" value="Valider"/>
 </form>
 
-</body>
-</html>
+
 
 <% include foot %>

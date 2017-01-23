@@ -88,6 +88,19 @@ app.get('/profile', function (req, res) {
     //res.render('profile');
     // Afficher le button logout
 });
+app.get('/logout', function (req, res) {
+    session.mail=null;
+    session.nom=null;
+    session.prenom=null;
+    session.photo=null;
+    session.couleur=null;
+    res.render('logout');
+});
+
+app.get('/paint', function (req, res) {
+
+    res.render('paint');
+});
 
 app.post('/supprimerProfil', function (req, res) {
     if (session.open) {

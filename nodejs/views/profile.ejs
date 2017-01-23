@@ -5,7 +5,7 @@
 
 <% var title = 'Mon Profil' %>
 
-<h1>Yo c'est ton profil de gitan</h1>
+<h1>Yo c'est ton profil</h1>
 
 
 <h2>ton mail : <%= email%></h2>
@@ -15,10 +15,14 @@
 <h2>ta couleur : <input type="color" id="couleur" name="couleur" value="<%= couleur%>"></h2>
 
 <p>
-    <input type="submit" value="logout">
+  se deconnecter <a href="/logout">/logout</a>
 </p>
 <p>
-    <input type="submit" value="supprimer mon compte">
+   supprimer mon compte <a href="/">/delete</a>
+</p>
+
+<p>
+   dessiner <a href="/paint">/paint</a>
 </p>
 
 <% include foot %>
