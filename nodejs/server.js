@@ -74,7 +74,7 @@ app.get('/profile', function (req, res) {
 
     if (session.open) {
         res.render('profile', {
-
+            id:session.id,
             email: session.mail,
             nom: session.nom,
             prenom: session.prenom,
@@ -102,9 +102,31 @@ app.get('/paint', function (req, res) {
     res.render('paint');
 });
 
-app.post('/supprimerProfil', function (req, res) {
+app.post('/paint', function (req, res) {
+    var dest = req.body.destinataire;
+    var mot = req.body.mot;
+    var picture = req.body.picture;
+
+    paint(dest,mot,picture,res);
+
+});
+
+app.get('/modif', function (req, res) {
+
+    res.render('modif');
+});
+
+app.post('/updateProfile', function (req, res) {
+    var nom = req.body.nom;
+    var prenom = req.body.prenom;
+    var couleur = req.body.couleur;
+    modifier(nom,prenom,couleur,res);
+
+});
+/*
+app.post('/suppr', function (req, res) {
     if (session.open) {
-        connection.query("delete from users where id = " + session.email, function (err, rows, fields) {
+        connection.query("delete from users where id = " + session.id, function (err, rows, fields) {
             if (!err) {
                 logger.info('bien ouej t as suppr un compte!');;
                 session.open = false;
@@ -116,7 +138,7 @@ app.post('/supprimerProfil', function (req, res) {
     }
     else res.redirect('/login');
 });
-
+*/
 logger.info('server start');
 app.listen(1313);
 
@@ -139,6 +161,7 @@ function check(username,pass,redir){
                 logger.info('Authentification valide !');
 
                 session.open = true;
+                session.id=rows[0].id;
                 session.mail = rows[0].email;
                 session.nom = rows[0].nom;
                 session.couleur = rows[0].couleur;
@@ -190,6 +213,73 @@ function inscrire(mail,nom,prenom,sexe,taille,tel,ville,site,pass,dateNaissance,
     });
 
     connection.end();
+}
+
+
+function modifier(nom,prenom,couleur,res){
+    var connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'root',
+        database: 'pictionnary'
+    });
+
+    connection.connect();
+
+
+        connection.query("UPDATE users SET nom ='"+nom+"', prenom='"+prenom+"', couleur='"+couleur+"' WHERE id='"+session.id+"' ",function(err,result){
+            if(!err) {
+
+                logger.info('it wooooorks');
+                session.couleur=couleur;
+                session.nom=nom;
+                session.prenom=prenom;
+                res.redirect('profile');
+
+            }
+            else
+            {
+                logger.info('noob');
+                throw  err;
+            }
+        });
+
+}
+
+
+
+function paint(dest,mot,picture,res){
+
+    var connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'root',
+        database: 'pictionnary'
+    });
+
+    connection.connect();
+
+        connection.query("INSERT INTO drawings (emailDest, emailPropr, mot, picture) VALUES ('"+dest+"','"+session.email+"','"+mot+"','"+picture+"')",function(err,result){
+            if(!err) {
+
+                logger.info('OK paint');
+                res.redirect('profile');
+
+
+            }
+            else
+            {
+                logger.info('KO paint ');
+                throw  err;
+
+            }
+
+
+        });
+
+
+
+
 }
 
 

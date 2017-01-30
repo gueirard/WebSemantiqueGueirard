@@ -1,0 +1,31 @@
+<% var title = 'modification du profil' %>
+<% include head %>
+<h2>Modifiez votre profil</h2>
+
+<form class="inscription" action="/updateProfile" method="post" name="modif">
+    <span class="required_notification">Les champs obligatoires sont indiqués par *</span>
+    <ul>
+
+
+        <li>
+            <label for="nom">Nom :</label>
+            <input type="text" name="nom" id="nom" required placeholder="Entrez un nom."/>
+            <!-- ajouter à input l'attribut qui donne une indication grisée (placeholder) -->
+        </li>
+        <li>
+            <label for="prenom">Prénom :</label>
+            <input type="text" name="prenom" id="prenom" required placeholder="Entrez un prénom."/>
+            <!-- ajouter à input l'attribut qui donne une indication grisée (placeholder) -->
+
+
+        <li>
+            <label for="color">Couleur préférée :</label>
+            <input type="color" id="couleur" name="couleur" value="#00000">
+        </li>
+
+        <li>
+            <input type="submit" value="Soumettre Modification">
+        </li>
+    </ul>
+</form>
+<% include foot %>
